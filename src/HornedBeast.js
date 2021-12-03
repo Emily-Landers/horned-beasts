@@ -15,15 +15,18 @@ import Button from 'react-bootstrap/Button';
             this.setState({ votes: this.state.votes + 1 });
             this.setState({hearts: this.state.hearts + '❤️'})
           }
+          handleImg= () => {
+            this.props.updateBeast(this.props.beast)
+          }
         
           render() {
             return (
               <Card> 
-                <Card.Img  variant="top" src={this.props.image_url} />
+                <Card.Img onClick={this.handleImg} variant="top" src={this.props.beast.image_url} alt={this.props.beast.description}/>
                 <Card.Body>
-                  <Card.Title>{this.props.title}</Card.Title>
+                  <Card.Title>{this.props.beast.title}</Card.Title>
                   <Card.Text>
-                    {this.props.description}
+                    {this.props.beast.description}
                   </Card.Text>
                   <Card.Text>
                   Number of votes: {this.state.votes} {this.state.hearts}

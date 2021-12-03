@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import HornedBeast from './HornedBeast'
-import data from './data.json';
 import Row from 'react-bootstrap/Row';
 import Header from './Header.js';
 import Col from 'react-bootstrap/col';
+
 
 
 class Main extends Component {
@@ -13,9 +13,9 @@ class Main extends Component {
     return (
       <div>
       <Header />
-      <Row sm={1} md={2} lg={4}>
+      <Row>
         <Col>
-        {data.map(beast => <HornedBeast image_url={beast.image_url} title={beast.title} description={beast.description}/>)}
+        {this.props.data.map((beast, idx) => <HornedBeast key={idx} updateBeast={this.props.updateBeast} beast={beast}/>)}
         </Col>
       </Row>
     </div>
